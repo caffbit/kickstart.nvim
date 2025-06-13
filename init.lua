@@ -219,6 +219,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+require 'custom.options'
+require 'custom.keymaps'
+require 'custom.snippets'
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -1012,6 +1016,5 @@ require('lazy').setup({
   },
 })
 
-require 'custom.options'
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
