@@ -25,6 +25,14 @@ end)
 -- Do things without affecting the registers
 vim.keymap.set('n', 'x', '"_x')
 
+-- Enable automatic reading of external changes
+vim.opt.autoread = true
+
+-- Check file changes when focus returns to neovim
+vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter' }, {
+  command = 'checktime',
+})
+
 -- You can add your own plugins here or in other files in this directory!
 --  I promise not to create any merge conflicts in this directory :)
 --
