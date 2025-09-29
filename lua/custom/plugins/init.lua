@@ -4,6 +4,10 @@ vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 
+-- Increase the width of the line number bar to prevent text from overflowing into the line number area
+-- Preset value 4 may not be enough when displaying signcolumn, resulting in rendering misalignment
+vim.o.numberwidth = 6
+
 vim.schedule(function()
   local is_devcontainer = os.getenv 'REMOTE_CONTAINERS' or os.getenv 'CODESPACES' or os.getenv 'DEVCONTAINER' or vim.fn.filereadable '/.dockerenv' == 1
 
