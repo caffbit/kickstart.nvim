@@ -1,12 +1,16 @@
 vim.g.have_nerd_font = true
 vim.o.relativenumber = true
-vim.o.signcolumn = 'yes:1'
 
 -- Sync with stylua's .stylua.toml formatting rules
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.softtabstop = 2
-vim.opt.expandtab = true
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'lua',
+  callback = function()
+    vim.opt_local.tabstop = 2
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.softtabstop = 2
+    vim.opt_local.expandtab = true
+  end,
+})
 
 -- Do things without affecting the registers
 vim.keymap.set('n', 'x', '"_x')
